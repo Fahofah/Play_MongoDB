@@ -60,7 +60,7 @@ class Application @Inject() (
     // get a future update
     val futureUpdate1 = collection.map(_.findAndUpdate(selector,newUser))
     futureUpdate1.map { result =>
-      Ok
+      Ok(UpdateWriteResult.toString)
     }
   }
 
@@ -68,7 +68,7 @@ class Application @Inject() (
 
     val selector = BSONDocument("lastName" -> lastName)
 
-    // get a future delete
+    // get a future update
     val futureDelete = collection.map(_.remove(selector))
     futureDelete.map { result =>
       Ok
